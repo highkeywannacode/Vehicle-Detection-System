@@ -1,1 +1,57 @@
-Real-Time Vehicle Detection SystemA Computer Vision project capable of detecting and classifying vehicles (Cars, Buses, Trucks, Motorcycles, Ambulances) in real-time video feeds using the YOLOv8 architecture.Table of ContentsAbout the ProjectKey FeaturesTech StackProject StructureInstallation GuideHow to RunResults & DemoFuture EnhancementsAuthorAbout the ProjectTraffic management is a critical challenge in modern urban planning. This project leverages Deep Learning to automate the detection of vehicles from video footage. Unlike standard models, this system has been custom-trained to specifically distinguish between 5 distinct classes of vehicles, providing granular data for traffic analysis.For a detailed technical explanation, architecture diagrams, and testing methodologies, please refer to the Project Report.docx included in this repository.Key FeaturesMulti-Class Detection: Identifies 5 specific classes: Ambulance, Bus, Car, Motorcycle, Truck.Real-Time Performance: Optimized for speed using the YOLOv8 Nano model.Video Pipeline: Seamlessly reads raw video, processes it, and saves the labeled output automatically.Confidence Scoring: Displays probability scores (e.g., "Bus 0.92") to indicate detection reliability.Robustness: Trained with data augmentation (Mosaic, scaling) to handle occlusion and varying lighting conditions.Tech StackComponentTechnologyLanguagePython 3.10Model ArchitectureYOLOv8 (Ultralytics)Image ProcessingOpenCV (cv2)Training EnvironmentLocal CPU/GPUIDEVS CodeProject StructureVehicle-Detection-System/│├── datasets/              # (Ignored by Git) Contains raw images & labels├── models/│   └── best.pt            # The custom trained YOLOv8 model├── detect_vehicles.py     # Main script to run detection on videos├── train_model.py         # Script to retrain the model├── data.yaml              # Dataset configuration file├── requirements.txt       # List of dependencies├── Project Report.docx    # 📄 Full academic report with diagrams├── video_links.docx       # 🔗 Links to the Input and Output demo videos├── README.md              # Project documentation├── statement.md           # Problem statement & scope└── .gitignore             # Files to exclude (videos, datasets)Installation GuideFollow these steps to set up the project locally.1. Clone the Repositorygit clone https://github.com/YourUsername/Vehicle-Detection-System.gitcd Vehicle-Detection-System2. Create a Virtual Environment (Optional but Recommended)python -m venv venvWindows:.\venv\Scripts\activateMac/Linux:source venv/bin/activate3. Install Dependenciespip install -r requirements.txtHow to RunOption 1: Run Detection on a VideoPlace your test video (e.g., traffic.mp4) in the main folder.Rename it to test_video.mp4 (or update the filename in the code).Run the detection script:python detect_vehicles.pyThe output will be saved as result.mp4.Option 2: Train the Model from ScratchIf you want to improve the model with new data:Ensure your dataset is organized in the datasets/ folder.Run the training script:python train_model.pyThe new model will be saved in runs/detect/train/weights/best.pt.Results & DemoTo see the project in action, please refer to the video_links.docx file in the repository. It contains direct links to:Input Video: The raw traffic footage used for testing.Output Video: The processed video showing bounding boxes and classifications.Performance MetricsmAP@50: ~0.85Precision: High accuracy on large vehicles (Buses/Trucks).Inference Speed: ~40ms per frame on CPU.Future Enhancements[ ] Speed Estimation: Calculate vehicle speed using frame-displacement logic.[ ] License Plate Recognition: Integrate OCR to read number plates.[ ] Night Mode: Train on low-light datasets for 24/7 monitoring.[ ] Web Interface: Build a Streamlit dashboard for easy user interaction.AuthorManas SharmaReg No: 22BHI10147University: VIT Bhopal UniversityCourse: B.Tech Computer Science (Health Informatics)This project was submitted as part of the academic curriculum for the Winter Semester 2025.
+# 🚗 Real-Time Vehicle Detection System
+
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)
+![YOLOv8](https://img.shields.io/badge/YOLOv8-Ultralytics-orange?style=for-the-badge&logo=yolo)
+![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-green?style=for-the-badge&logo=opencv)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
+
+> **A Computer Vision project capable of detecting and classifying vehicles (Cars, Buses, Trucks, Motorcycles, Ambulances) in real-time video feeds using the YOLOv8 architecture.**
+
+
+---
+
+## 📝 About the Project
+
+Traffic management is a critical challenge in modern urban planning. This project leverages **Deep Learning** to automate the detection of vehicles from video footage. Unlike standard models, this system has been **custom-trained** to specifically distinguish between 5 distinct classes of vehicles, providing granular data for traffic analysis.
+
+The system processes video input frame-by-frame, applies the YOLOv8 inference engine, and outputs a video file with bounding boxes and confidence scores drawn around detected vehicles.
+
+---
+
+## ✨ Key Features
+
+* **🔍 Multi-Class Detection:** Identifies 5 specific classes: `Ambulance`, `Bus`, `Car`, `Motorcycle`, `Truck`.
+* **⚡ Real-Time Performance:** Optimized for speed using the YOLOv8 Nano model.
+* **🎥 Video Pipeline:** Seamlessly reads raw video, processes it, and saves the labeled output automatically.
+* **📊 Confidence Scoring:** Displays probability scores (e.g., "Bus 0.92") to indicate detection reliability.
+* **🛡️ Robustness:** trained with data augmentation (Mosaic, scaling) to handle occlusion and varying lighting conditions.
+
+---
+
+## 🛠 Tech Stack
+
+| Component | Technology |
+| :--- | :--- |
+| **Language** | Python 3.10 |
+| **Model Architecture** | YOLOv8 (Ultralytics) |
+| **Image Processing** | OpenCV (cv2) |
+| **Training Environment** | Local CPU/GPU |
+| **IDE** | VS Code |
+
+---
+
+## 📂 Project Structure
+
+```bash
+Vehicle-Detection-System/
+│
+├── datasets/              # (Ignored by Git) Contains raw images & labels
+├── models/
+│   └── best.pt            # 🧠 The custom trained YOLOv8 model
+├── detect_vehicles.py     # 🚀 Main script to run detection on videos
+├── train_model.py         # 🎓 Script to retrain the model
+├── data.yaml              # ⚙️ Dataset configuration file
+├── requirements.txt       # 📦 List of dependencies
+├── README.md              # 📄 Project documentation
+├── statement.md           # 📄 Problem statement & scope
+└── .gitignore             # 🚫 Files to exclude (videos, datasets)
