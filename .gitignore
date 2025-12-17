@@ -1,0 +1,6 @@
+datasets/
+runs/
+__pycache__/
+*.mp4
+*.pt
+!models/best.pt

@@ -1,0 +1,7 @@
+path: ./datasets/vehicles  
+train: train/images        
+val: valid/images          
+
+# Classes (These must match the Kaggle dataset classes)
+nc: 5
+names: ['Ambulance', 'Bus', 'Car', 'Motorcycle', 'Truck']
